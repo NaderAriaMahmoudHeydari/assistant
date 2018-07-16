@@ -1,7 +1,7 @@
 package com.nader.aria.assistant.dao.life_repository;
 
 import com.nader.aria.assistant.entities.enums.PriorityType;
-import com.nader.aria.assistant.entities.enums.TaskType;
+import com.nader.aria.assistant.entities.enums.TaskTimeType;
 import com.nader.aria.assistant.entities.financial.Financial;
 import com.nader.aria.assistant.entities.life.Sprint;
 import com.nader.aria.assistant.entities.life.Task;
@@ -15,7 +15,7 @@ import java.util.List;
 public interface ITaskRepository extends JpaRepository<Task,Long> {
 
     public List<Task> findAllByPriorityType(@Param("priorityType") PriorityType priorityType);
-    public List<Task> findAllByTaskType(@Param("taskType") TaskType taskType);
+    public List<Task> findAllByTaskTimeType(@Param("taskTimeType") TaskTimeType taskTimeType);
     public List<Task> findAllByTimePrediction(@Param("timePrediction") Calendar timePrediction);
     public List<Task> findAllBySprint(@Param("sprint") Sprint sprint);
     public List<Task> findAllByDependency(@Param("dependency") Task dependency);

@@ -10,14 +10,13 @@ import com.nader.aria.assistant.entities.enums.Language;
 public class Login extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
-	
-	@OneToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch= FetchType.EAGER )
+
+	@OneToOne(cascade= {CascadeType.ALL} ,fetch= FetchType.EAGER )
 	@JoinColumn(name="USER_ID")
 	@Valid
 	private User user;
-	
-	
-	@OneToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch= FetchType.EAGER)
+
+	@OneToOne(cascade= {CascadeType.ALL} ,fetch= FetchType.EAGER)
 	@JoinColumn(name="USER_NAME_PASSWORD_ID")
 	@Valid
 	private UserNamePassword userNamePassword;

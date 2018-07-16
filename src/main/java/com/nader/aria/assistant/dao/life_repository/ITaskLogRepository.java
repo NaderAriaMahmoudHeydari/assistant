@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.Calendar;
 import java.util.List;
 
-public interface ITaskLog extends JpaRepository<TaskLog,Long> {
+public interface ITaskLogRepository extends JpaRepository<TaskLog,Long> {
 
     public List<TaskLog> findAllByTask(@Param("task") Task task);
     public List<TaskLog> findAllByStateType(@Param("stateType") StateType stateType);

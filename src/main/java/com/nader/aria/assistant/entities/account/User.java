@@ -31,12 +31,12 @@ public class User extends BaseEntity {
 	@Column(name="BIRTH_DAY"  )
 	private Calendar birthDay;
 	
-	@OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER)
+	@OneToOne(cascade = {CascadeType.ALL} ,fetch = FetchType.EAGER)
 	@JoinColumn(name="ADDRESS_ID"  )
 	@Valid
 	private Address address;
 	
-	@OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name="CONTACT_DETAIL_ID"  )
 	@Valid
 	private ContactDetail contactDetail;

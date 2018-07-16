@@ -10,7 +10,9 @@ import java.util.List;
 
 public interface ILoginRepository extends JpaRepository<Login,Long> {
 
+     @Deprecated
      public Login findByUserNamePassword(@Param("userNamePassword")UserNamePassword userNamePassword);
+
      public Login findByUserNamePasswordUserNameAndUserNamePasswordPassword(@Param("userName") String userName, @Param("password") String password);
      public Login findByUser(@Param("user") User user);
 

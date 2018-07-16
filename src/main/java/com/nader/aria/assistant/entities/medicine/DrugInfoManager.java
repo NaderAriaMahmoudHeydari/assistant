@@ -15,7 +15,7 @@ public class DrugInfoManager extends BaseEntity {
 	@JoinColumn(name="LOGIN_ID")
 	private Login login;
 	
-	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.LAZY , mappedBy ="drugInfoManager")
+	@OneToMany( cascade = {CascadeType.ALL},fetch = FetchType.LAZY , mappedBy ="drugInfoManager")
 	private List<DrugInfo> drugInfos;
 	
 	

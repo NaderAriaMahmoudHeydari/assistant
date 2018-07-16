@@ -8,4 +8,5 @@ import org.springframework.data.repository.query.Param;
 public interface IDrugInfoManagerRepository extends JpaRepository<DrugInfoManager,Long> {
 
     public DrugInfoManager findByLogin(@Param("login") Login login);
+
 }

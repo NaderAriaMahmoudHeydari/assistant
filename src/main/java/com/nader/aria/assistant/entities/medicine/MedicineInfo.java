@@ -14,17 +14,21 @@ public class MedicineInfo extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH},fetch = FetchType.EAGER)
+	@JoinColumn(name="MEDICINE_INFO_MANAGER_ID" )
+	private MedicineInfoManager medicineInfoManager;
+
 	@Column(name="TITLE")
 	private String title;
 	
 	@Column(name="DESCRIPTION"  )
 	private String description;
 	
-	@OneToOne( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.EAGER )
+	@OneToOne( cascade = {CascadeType.ALL},fetch = FetchType.EAGER )
 	@JoinColumn(name="ADDRESS_ID"  )
 	private Address address;
 	
-	@OneToOne( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER )
+	@OneToOne( cascade = {CascadeType.ALL} ,fetch = FetchType.EAGER )
 	@JoinColumn(name="CONTACT_DETAIL_ID"  )
 	private ContactDetail contactDetail;
 	
@@ -34,7 +38,10 @@ public class MedicineInfo extends BaseEntity {
 	
 	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy = "medicineInfo" )
 	private List<DrugInfo> drugInfoes;
-	
+
+	public MedicineInfoManager getMedicineInfoManager(){ return medicineInfoManager; }
+	public void setMedicineInfoManager(MedicineInfoManager medicineInfoManager){ this.medicineInfoManager =medicineInfoManager; }
+
 	public String getTitle() { return title;}
 	public void setTitle(String title) { this.title = title; }
 	

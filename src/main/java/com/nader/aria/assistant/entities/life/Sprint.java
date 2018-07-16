@@ -37,7 +37,7 @@ public class Sprint extends BaseEntity {
 	@Column(name="STATE_TYPE")
 	private StateType stateType;
 	
-	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy ="sprint" )
+	@OneToMany( cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY , mappedBy ="sprint" )
 	private List<Task> tasks;
 	
 	

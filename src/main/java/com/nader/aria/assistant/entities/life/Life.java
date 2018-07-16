@@ -17,7 +17,7 @@ public class Life extends BaseEntity {
 	@JoinColumn(name ="LOGIN_ID" )
 	private Login login;
 	
-	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy="life" )
+	@OneToMany( cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY , mappedBy="life" )
 	private List<Aim> aims;
 	
 	public Login getLogin() { return login; }

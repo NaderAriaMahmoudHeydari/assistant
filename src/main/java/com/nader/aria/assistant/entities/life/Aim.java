@@ -39,7 +39,7 @@ public class Aim extends BaseEntity {
 	@Column(name="STATE_TYPE")
 	private StateType stateType;
 	
-	@OneToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy="aim" )
+	@OneToMany(cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY , mappedBy="aim" )
 	private List<Sprint> sprints;
 	
 	

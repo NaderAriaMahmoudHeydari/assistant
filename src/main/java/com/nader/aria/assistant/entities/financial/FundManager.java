@@ -16,12 +16,12 @@ public class FundManager extends BaseEntity {
 	@JoinColumn(name ="LOGIN_ID" )
 	private Login login;
 	
-	@OneToOne( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER )
+	@OneToOne( cascade = {CascadeType.ALL} ,fetch = FetchType.EAGER )
 	@JoinColumn(name ="CURRENT_FUND_ID" )
 	@Valid
 	private CurrentFund currentFund;
 	
-	@OneToOne( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER )
+	@OneToOne( cascade = {CascadeType.ALL} ,fetch = FetchType.EAGER )
 	@JoinColumn(name ="SAVINGS_FUND_ID" )
 	@Valid
 	private SavingsFund savingsFund;

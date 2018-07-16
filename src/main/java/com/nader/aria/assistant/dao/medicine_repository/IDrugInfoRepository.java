@@ -16,5 +16,6 @@ public interface IDrugInfoRepository extends JpaRepository<DrugInfo,Long> {
     public List<DrugInfo> findAllByTakingMedication(@Param("takingMedication") TakingMedication takingMedication);
     public List<DrugInfo> findAllByComplications(@Param("complications") String complications);
     public DrugInfo findByTitle(@Param("title") String title);
+    public void deleteAllByDrugInfoManager(@Param("drugInfoManager") DrugInfoManager drugInfoManager);
 
 }

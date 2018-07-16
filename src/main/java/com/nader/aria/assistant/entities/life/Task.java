@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 import com.nader.aria.assistant.entities.abstracts.BaseEntity;
 import com.nader.aria.assistant.entities.enums.PriorityType;
-import com.nader.aria.assistant.entities.enums.TaskType;
+import com.nader.aria.assistant.entities.enums.TaskTimeType;
 import com.nader.aria.assistant.entities.financial.Financial;
 import com.nader.aria.assistant.entities.reminder.Reminder;
 
@@ -14,7 +14,6 @@ import com.nader.aria.assistant.entities.reminder.Reminder;
 @Table(name="TASKS" , uniqueConstraints = @UniqueConstraint( columnNames= {"SPRINT_ID","TITLE","CODE"}) )
 @Inheritance(strategy = InheritanceType.JOINED )
 @DiscriminatorColumn(name = "TASK_CHILD_TYPE" , discriminatorType = DiscriminatorType.STRING )
-
 public class Task extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -39,20 +38,20 @@ public class Task extends BaseEntity {
 	
 	@Enumerated( EnumType.STRING )
 	@Column(name="TASK_TYPE")
-	private TaskType taskType;
+	private TaskTimeType taskTimeType;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="TIME_PREDICTION")
 	private Calendar timePrediction;//پیش بینی زمان
 	
-	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy ="task")
+	@OneToMany( cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY , mappedBy ="task")
 	private List<TaskLog> taskLogs;
 	
-	@OneToOne( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER )
+	@OneToOne( cascade = {CascadeType.ALL} ,fetch = FetchType.EAGER )
 	@JoinColumn(name="FINANCIAL_ID"   )
 	private Financial financial;
 	
-	@OneToOne( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.EAGER )
+	@OneToOne( cascade = {CascadeType.ALL} ,fetch = FetchType.EAGER )
 	@JoinColumn(name="REMINDER_ID"  )
 	private Reminder reminder;
 	
@@ -80,8 +79,8 @@ public class Task extends BaseEntity {
 	public PriorityType getPriorityType() { return priorityType; }
 	public void setPriorityType(PriorityType priorityType) { this.priorityType = priorityType; }
 	
-	public TaskType getTaskType() { return taskType; }
-	public void setTaskType(TaskType taskType) { this.taskType = taskType; }
+	public TaskTimeType getTaskTimeType() { return taskTimeType; }
+	public void setTaskTimeType(TaskTimeType taskTimeType) { this.taskTimeType = taskTimeType; }
 	
 	
 	public Calendar getTimePrediction() { return timePrediction; }

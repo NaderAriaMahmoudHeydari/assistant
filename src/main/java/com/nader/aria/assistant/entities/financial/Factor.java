@@ -11,7 +11,7 @@ public class Factor extends Payment {
 
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} , fetch = FetchType.LAZY , mappedBy = "factor" )
+	@OneToMany(cascade = {CascadeType.ALL} , fetch = FetchType.LAZY , mappedBy = "factor" )
 	private List<FactorDetail> factorDetails;
 	
 	public List<FactorDetail> getFactorDetails(){ return factorDetails; }

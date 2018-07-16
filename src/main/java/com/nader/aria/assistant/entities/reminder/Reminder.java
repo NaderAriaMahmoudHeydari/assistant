@@ -20,7 +20,7 @@ public class Reminder extends BaseEntity {
 	@JoinColumn(name = "REMINDER_MANAGER_ID" )
 	private ReminderManager reminderManager;
 	
-	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy = "reminder" )
+	@OneToMany( cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY , mappedBy = "reminder" )
 	private List<Message> messages;
 	
 	@Enumerated(EnumType.STRING)

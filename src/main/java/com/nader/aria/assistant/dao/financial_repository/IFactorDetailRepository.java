@@ -13,6 +13,8 @@ public interface IFactorDetailRepository extends JpaRepository<FactorDetail,Long
     public List<FactorDetail> findAllByAmountOf(@Param("amountOf") Long amountOf);
     public List<FactorDetail> findAllByPricePerUnit(@Param("pricePerUnit") Long pricePerUnit);
     public List<FactorDetail> findAllBySum(@Param("sum") Long sum);
-    public FactorDetail findByFactor(@Param("factor") Factor factor);
+    public List<FactorDetail> findAllByFactor(@Param("factor") Factor factor);
     public FactorDetail findByTitle(@Param("title") String title);
+    public void deleteAllByFactor(@Param("factor") Factor factor);
+
 }

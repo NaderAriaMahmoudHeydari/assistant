@@ -1,18 +1,17 @@
 package com.nader.aria.assistant.entities.enums;
 
-public enum TaskType {
+public enum FinancialType {
 
-    TASK(1),
-    MEDICINE_TEST(2),
-    MEDICINE_VISIT(3),
-    TAKING_MEDICATION(4);
+    FINANCIAL(1),
+    RECEIVE(2),
+    PAYMENT(3),
+    FACTOR(4);
 
     private int no;
 
-    private TaskType(int no){
+    private FinancialType(int no){
         this.no = no;
     }
 
     public int getNo(){ return no; }
-
 }

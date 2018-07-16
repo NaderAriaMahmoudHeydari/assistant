@@ -16,7 +16,7 @@ public class ReminderManager extends BaseEntity {
 	@JoinColumn(name ="LOGIN_ID" )
 	private Login login;
 	
-	@OneToMany( cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH} ,fetch = FetchType.LAZY , mappedBy = "reminderManager" )
+	@OneToMany( cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY , mappedBy = "reminderManager" )
 	private List<Reminder> reminders;
 	
 	public Login getLogin() { return login; }
